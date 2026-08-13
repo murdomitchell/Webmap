@@ -1,21 +1,32 @@
-# TIGIS_webmap
+# TIGIS Webmap
 
-This is the code base for the University of Edinburgh 2025 Capitol Greenspace Group 5's Web Map Experience. The primary objective of the web map is to serve as a visualisation and exploration tool for the final output of the Analytic Hierarchy Process (AHP) model, which ranked 65 Category C-listed buildings for potential retrofitting into new community centres in Edinburgh. Designed for government and council stakeholders and decision-makers, this web map allows users to dynamically view final site scores and explore the influence of four ranking criteria: Deprivation, Accessibility, Greenspace Type, and Proximity to Nearest Existing Community Centres. 
+An interactive web map built for the University of Edinburgh's 2025 Capitol Greenspace Group 5 project. It visualises the output of an Analytic Hierarchy Process (AHP) model that ranked 65 Category C-listed buildings in Edinburgh for potential retrofitting into new community centres.
 
-The web map was built using an open-source technical stack, leveraging Python for backend data handling and JavaScript for the interactive frontend interface.
+Designed for government and council stakeholders, the map lets users dynamically explore final site scores and see how they're shaped by four ranking criteria: **Deprivation**, **Accessibility**, **Greenspace Type**, and **Proximity to Nearest Existing Community Centre**.
 
-If up you can browse it here:
-https://www.geos.ed.ac.uk/dev/cgsgroup5
+<!--screenshot-->
 
----------
+**Live demo** (University of Edinburgh network access required, may not always be available): https://www.geos.ed.ac.uk/dev/cgsgroup5
 
-### Note
-To run the development version of this website, you need to be on the University of Edinburgh VPN or in the Remote Desktop and have been granted access to the relevant SQL data tables. Assuming this is true, complete the following steps to run the development version of the webapp:
+## My Role
 
-1. Ensure that you have downloaded `flask`, `geopandas`, `dotenv`, `oracledb`, and `pathlib` and all their dependencies.
-2. To connect the SQL data tables, create a .env file in the following format
-    * ORACLE_USER=s1234567
-    * ORACLE_PASSWORD=***
-  * Then include the resulting path in ``dotenv.load_dotenv()`` in [app.py](app.py) if not in this folder.
-3. Run [app.py](app.py) and then open http://127.0.0.1:5000 <br>
-5000 can be changed by specifying port in `app.run()`
+I was the primary developer of this codebase — the Oracle database integration, SQL data layer, and the Leaflet-based interactive front-end — with contributions from my Capitol Greenspace Group 5 teammates on the underlying AHP analysis and data preparation.
+
+## Tech Stack
+
+- **Backend:** Python (Flask, GeoPandas), Oracle database (`oracledb`)
+- **Frontend:** JavaScript, HTML/CSS, Leaflet
+
+## Running the Development Version
+
+Requires University of Edinburgh VPN or Remote Desktop access, and permission to the relevant Oracle SQL data tables.
+
+1. Install dependencies: `flask`, `geopandas`, `python-dotenv`, `oracledb`, `pathlib` (and their dependencies).
+2. Create a `.env` file with your Oracle credentials:
+   ```
+   ORACLE_USER=s1234567
+   ORACLE_PASSWORD=***
+   ```
+   Point `dotenv.load_dotenv()` in [`app.py`](app.py) at this file if it isn't in the same folder.
+3. Run [`app.py`](app.py), then open http://127.0.0.1:5000 in your browser.
+   (Change the port by passing it to `app.run()`.)
